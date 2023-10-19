@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="box">
+        <h1> Calculator </h1>
+        <div class="screen"></div>
+        <table>
+            <tr>
+                <td> <button onclick="clean()">C</button></td>
+                <td> <button onclick="back()"><</button></td>
+                <td> <button onclick="insert('/')">/</button></td>
+                <td> <button onclick="insert('*')">x</button></td>
+            </tr>                    
+            <tr>
+                <td> <button onclick="insert('7')">7</button></td>
+                <td> <button onclick="insert('8')">8</button></td>
+                <td> <button onclick="insert('9')">9</button></td>
+                <td> <button onclick="insert('-')">-</button></td>
+            </tr>
+            <tr>
+                <td> <button onclick="insert('4')">4</button></td>
+                <td> <button onclick="insert('5')">5</button></td>
+                <td> <button onclick="insert('6')">6</button></td>
+                <td> <button onclick="insert('+')">+</button></td>
+            </tr>
+            <tr>
+                <td> <button onclick="insert('1')">1</button></td>
+                <td> <button onclick="insert('2')">2</button></td>
+                <td> <button onclick="insert('3')">3</button></td>
+                <td rowspan="2"><button onclick="sum()" style="height: 102px; background-color: rgb(233, 99, 9);">=</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="insert('0')"style="width: 102px;" >0</button></td>
+                <td> <button onclick="insert('.')">.</button></td>               
+            </tr>
+   
+        </table>
+    </div>
+</body>
+<script>
+    function insert(num) {
+        document.querySelector(".screen").innerHTML += num;
+    }
+
+    function clean() {
+        document.querySelector(".screen").innerHTML = ""
+    }
+
+    function back() {
+        let screen = document.querySelector(".screen").innerHTML;
+        document.querySelector(".screen").innerHTML = screen.substring (
+        0, screen.length -1)
+    }
+
+    function sum() {
+        let screen = document.querySelector(".screen").innerHTML;
+        if (screen) {
+            document.querySelector(".screen").innerHTML = eval(screen)
+        } else {
+            document.querySelector(".screen").innerHTML = "Nenhum comando."
+        } 
+    }
+
+</script>
+</html>
